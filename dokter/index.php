@@ -10,7 +10,7 @@ require_once 'sidebar.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Dokter</h1>
+                    <h1>Menu Data Dokter</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -84,7 +84,7 @@ require_once 'sidebar.php';
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            Footer
+                            Project 1 - Aplikasi CRUD Sederhana Puskesmas
                         </div>
                         <!-- /.card-footer-->
                     </div>

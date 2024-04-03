@@ -1,8 +1,8 @@
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.1.0
+        <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">by Abdurrahman Ziyad</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2024 <a href="https://www.linkedin.com/in/eko-haryono-290/">by Eko Muchamad Haryono</a>.</strong> All rights reserved.
 </footer>
 
 <!-- Control Sidebar -->

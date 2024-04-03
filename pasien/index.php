@@ -84,7 +84,7 @@ require_once 'sidebar.php';
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            Footer
+                            Project 1 - Aplikasi CRUD Sederhana Puskesmas
                         </div>
                         <!-- /.card-footer-->
                     </div>

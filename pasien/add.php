@@ -27,7 +27,7 @@ if (isset($_POST["submit"])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Dashboard Website</h1>
+                    <h1>Menu Tambah Data - Form Pasien</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->

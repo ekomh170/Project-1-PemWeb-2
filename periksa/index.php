@@ -10,7 +10,7 @@ require_once 'sidebar.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Periksa</h1>
+                    <h1>Menu Data Periksa</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -25,7 +25,7 @@ require_once 'sidebar.php';
                     <!-- Default box -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Tabel Periksa</h3>
+                            <h3 class="card-title">Tabel Periksa (Assesment)</h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -82,7 +82,7 @@ require_once 'sidebar.php';
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            Footer
+                            Project 1 - Aplikasi CRUD Sederhana Puskesmas
                         </div>
                         <!-- /.card-footer-->
                     </div>
