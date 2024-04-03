@@ -46,19 +46,10 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="https://www.linkedin.com/in/eko-haryono-290/" class="nav-link" target="_blank">
+                    <a href="profile.php" class="nav-link">
                         <i class="nav-icon fas fa-user-alt"></i>
                         <p>
                             Profile Kreator
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="https://github.com/ekomh170" class="nav-link" target="_blank">
-                        <i class="nav-icon fa fa-user-alt"></i>
-                        <p>
-                            Profile Github
                         </p>
                     </a>
                 </li>
@@ -91,6 +82,24 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/in/eko-haryono-290/" class="nav-link" target="_blank">
+                        <i class="nav-icon fas fa-user-alt"></i>
+                        <p>
+                            Profile Linkedin
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="https://github.com/ekomh170" class="nav-link" target="_blank">
+                        <i class="nav-icon fa fa-user-alt"></i>
+                        <p>
+                            Profile Github
+                        </p>
+                    </a>
                 </li>
 
             </ul>

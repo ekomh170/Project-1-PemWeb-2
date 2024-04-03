@@ -10,7 +10,7 @@ require_once 'sidebar.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Dashboard Website</h1>
+                    <h1>Dashboard Informasi</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -38,31 +38,55 @@ require_once 'sidebar.php';
                         </div>
                         <div class="card-body">
                             <div class="container">
-                                <h4 class="text-center mt-4">Selamat Datang Di Website Project 01<br/>Aplikasi CRUD Sederhana Puskesmas<br/>Tugas Pemrograman Web 2</h4>
-                                <div class="row justify-content-center mt-5">
-                                    <div class="col-md-6">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <h5 class="card-title">Informasi Mahasiswa</h5>
-                                                        <div class="text-center">
-                                                            <img src="dist/img/mypicture/profile/profile.png" class="img-fluid" alt="Profile Image">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <ul class="list-group list-group-flush">
-                                                            <li class="list-group-item"><strong>Nama :</strong> Eko Muchamad Haryono</li>
-                                                            <li class="list-group-item"><strong>NIM :</strong> 0110223079</li>
-                                                            <li class="list-group-item"><strong>Kelas :</strong> TI02</li>
-                                                            <li class="list-group-item"><strong>Program Studi :</strong> Teknik Informatika</li>
-                                                        </ul>
-                                                    </div>
+                                <h4 class="text-center mt-4">Selamat Datang Di Website Project 01<br />Aplikasi CRUD Sederhana Puskesmas<br />Tugas Pemrograman Web 2</h4>
+
+                                <div class="informasi_menu mt-5">
+                                    <!-- Data Pasien -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card bg-primary text-white">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Data Pasien</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <!-- Isi dengan tabel atau konten yang sesuai -->
+                                                    <p>Isi Data Pasien disini...</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Data Dokter -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card bg-success text-white">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Data Dokter</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <!-- Isi dengan tabel atau konten yang sesuai -->
+                                                    <p>Isi Data Dokter disini...</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Data Periksa -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card bg-info text-white">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Data Periksa</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <!-- Isi dengan tabel atau konten yang sesuai -->
+                                                    <p>Isi Data Periksa disini...</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <!-- /.card-body -->
