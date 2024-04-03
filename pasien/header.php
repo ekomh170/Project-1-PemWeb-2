@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project 01 - Eko Muchamad Haryono</title>
+    <title>Halaman Data Pasien - Project 01 - Eko Muchamad Haryono</title>
 
     <!-- Favicon, Apple Touch Icon, Android Chrome 192 & 512, Favicon 16 & 32, Site.Web Manifest  -->
     <link rel="icon" href="../dist/img/favicon/favicon.ico" type="image/x-icon" />
