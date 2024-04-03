@@ -3,29 +3,17 @@ require_once 'header.php';
 require_once 'sidebar.php';
 
 require '../dbkoneksi.php';
-
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    // Query untuk mengambil data dokter berdasarkan id
-    $sql = "SELECT * FROM dokter WHERE id = ?";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute([$id]);
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-}
-
 if (isset($_POST['submit'])) {
-    $_nama = $_POST['nama'];
-    $_gender = $_POST['gender'];
-    $_tmp_lahir = $_POST['tmp_lahir'];
-    $_tgl_lahir = $_POST['tgl_lahir'];
-    $_kategori = $_POST['kategori'];
-    $_telpon = $_POST['telpon'];
-    $_alamat = $_POST['alamat'];
-    $_unit_kerja_id = $_POST['unit_kerja_id'];
-    $data = [$_nama, $_gender, $_tmp_lahir, $_tgl_lahir, $_kategori, $_telpon, $_alamat, $_unit_kerja_id, $id];
-
-    // Query SQL untuk update data dokter berdasarkan id
-    $sql = "UPDATE dokter SET nama = ?, gender = ?, tmp_lahir = ?, tgl_lahir = ?, kategori = ?, telpon = ?, alamat = ?, unit_kerja_id = ? WHERE id = ?";
+    $_tanggal = $_POST['tanggal'];
+    $_berat = $_POST['berat'];
+    $_tinggi = $_POST['tinggi'];
+    $_tensi = $_POST['tensi'];
+    $_keterangan = $_POST['keterangan'];
+    $_pasien_id = $_POST['pasien_id'];
+    $_dokter_id = $_POST['dokter_id'];
+    $data = [$_tanggal, $_berat, $_tinggi, $_tensi, $_keterangan, $_pasien_id, $_dokter_id];
+    // Query SQL untuk update data periksa berdasarkan id
+    $sql = "INSERT INTO periksa (tanggal, berat, tinggi, tensi, keterangan, pasien_id, dokter_id) VALUES (?,? ,? ,? ,? ,? ,?)";
 
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);
@@ -40,7 +28,7 @@ if (isset($_POST['submit'])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Menu Edit Data - Form Dokter</h1>
+                    <h1>Menu Tambah Data - Form Periksa</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -55,7 +43,7 @@ if (isset($_POST['submit'])) {
                     <!-- Default box -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Form Dokter</h3>
+                            <h3 class="card-title">Form Periksa</h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -67,64 +55,61 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                         <div class="card-body">
-                            <h2 class="text-center">Form Dokter</h2>
-                            <form action="edit.php?id=<?= $row['id'] ?>" method="POST">
+                            <h2 class="text-center">Form Periksa</h2>
+                            <form action="add.php" method="POST">
                                 <div class="form-group row">
-                                    <label for="nama" class="col-4 col-form-label">Nama</label>
+                                    <label for="tanggal" class="col-4 col-form-label">Tanggal Pemeriksaan Pasien</label>
                                     <div class="col-8">
-                                        <input id="nama" name="nama" type="text" class="form-control" value="<?= $row['nama'] ?>">
+                                        <input id="tanggal" name="tanggal" type="date" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="gender" class="col-4 col-form-label">Jenis Kelamin</label>
+                                    <label for="berat" class="col-4 col-form-label">Berat Badan Pasien</label>
                                     <div class="col-8">
-                                        <select id="gender" name="gender" class="custom-select">
-                                            <option value="L" <?= ($row['gender'] == 'L') ? 'selected' : '' ?>>Laki-Laki</option>
-                                            <option value="P" <?= ($row['gender'] == 'P') ? 'selected' : '' ?>>Perempuan</option>
+                                        <input id="berat" name="berat" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tinggi" class="col-4 col-form-label">Tinggi Badan Pasien</label>
+                                    <div class="col-8">
+                                        <input id="tinggi" name="tinggi" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tensi" class="col-4 col-form-label">Tensi Pasien</label>
+                                    <div class="col-8">
+                                        <input id="tensi" name="tensi" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="keterangan" class="col-4 col-form-label">Keterangan Kondisi Pasien</label>
+                                    <div class="col-8">
+                                        <input id="keterangan" name="keterangan" type="keterangan" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="pasien_id" class="col-4 col-form-label">Nama Pasien</label>
+                                    <div class="col-8">
+                                        <select id="pasien_id" name="pasien_id" class="custom-select">
+                                            <?php
+                                            $sqljenis = "SELECT * FROM pasien";
+                                            $rsjenis = $dbh->query($sqljenis);
+                                            foreach ($rsjenis as $rowjenis) {
+                                                echo "<option value='" . $rowjenis['id'] . "' >" . $rowjenis['id'] . ". ". $rowjenis['nama'] . "</option>";
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="tmp_lahir" class="col-4 col-form-label">Tempat Lahir</label>
+                                    <label for="dokter_id" class="col-4 col-form-label">Nama Dokter Pemeriksa Pasien</label>
                                     <div class="col-8">
-                                        <input id="tmp_lahir" name="tmp_lahir" type="text" class="form-control" value="<?= $row['tmp_lahir'] ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="tgl_lahir" class="col-4 col-form-label">Tanggal Lahir</label>
-                                    <div class="col-8">
-                                        <input id="tgl_lahir" name="tgl_lahir" type="date" class="form-control" value="<?= $row['tgl_lahir'] ?>">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="kategori" class="col-4 col-form-label">Kategori</label>
-                                    <div class="col-8">
-                                        <input id="kategori" name="kategori" type="kategori" class="form-control" value="<?= $row['kategori'] ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="telpon" class="col-4 col-form-label">Telpon</label>
-                                    <div class="col-8">
-                                        <input id="telpon" name="telpon" type="telpon" class="form-control" value="<?= $row['telpon'] ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="alamat" class="col-4 col-form-label">Alamat</label>
-                                    <div class="col-8">
-                                        <input id="alamat" name="alamat" type="text" class="form-control" value="<?= $row['alamat'] ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="unit_kerja_id" class="col-4 col-form-label">Unit Kerja</label>
-                                    <div class="col-8">
-                                        <select id="unit_kerja_id" name="unit_kerja_id" class="custom-select">
+                                        <select id="dokter_id" name="dokter_id" class="custom-select">
                                             <?php
-                                            $sqljenis = "SELECT * FROM unit_kerja";
+                                            $sqljenis = "SELECT * FROM dokter";
                                             $rsjenis = $dbh->query($sqljenis);
                                             foreach ($rsjenis as $rowjenis) {
-                                                $selected = ($row['unit_kerja_id'] == $rowjenis['id']) ? 'selected' : '';
-                                                echo "<option value='" . $rowjenis['id'] . "' $selected>" . $rowjenis['nama'] . "</option>";
+                                                echo "<option value='" . $rowjenis['id'] . "'>" . $rowjenis['id'] . ". ". $rowjenis['nama'] . "</option>";
                                             }
                                             ?>
                                         </select>
