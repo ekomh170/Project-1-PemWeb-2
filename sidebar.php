@@ -14,7 +14,7 @@
                 <img src="dist/img/profile/profile.png" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Eko Muchamad Haryono</a>
+                <a href="profile.php" class="d-block">Eko Muchamad Haryono</a>
             </div>
         </div>
 
@@ -33,11 +33,17 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
 
                 <li class="nav-item">
-                    <a href="index.php" class="nav-link">
+                    <!-- Validasi IF Untuk Menu Halaman Utama jika url index.php nav-link active jika tidak non aktif -->
+                    <?php
+                    if (strpos($_SERVER['REQUEST_URI'], 'index.php')) {
+                        $active = 'active';
+                    } else {
+                        $active = '';
+                    }
+                    ?>
+                    <a href="index.php" class="nav-link <?php echo $active; ?>">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Halaman Utama
@@ -46,7 +52,15 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="profile.php" class="nav-link">
+                    <!-- Validasi IF Untuk Menu Profile jika url profile.php nav-link active jika tidak non aktif -->
+                    <?php
+                    if (strpos($_SERVER['REQUEST_URI'], 'profile.php')) {
+                        $active = 'active';
+                    } else {
+                        $active = '';
+                    }
+                    ?>
+                    <a href="profile.php" class="nav-link <?php echo $active; ?>">
                         <i class="nav-icon fas fa-user-alt"></i>
                         <p>
                             Profile Kreator
