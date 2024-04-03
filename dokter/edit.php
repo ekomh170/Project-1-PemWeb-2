@@ -6,26 +6,32 @@ require '../dbkoneksi.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    // Query untuk mengambil data pasien berdasarkan id
-    $sql = "SELECT * FROM pasien WHERE id = ?";
+    // Query untuk mengambil data dokter berdasarkan id
+    $sql = "SELECT * FROM dokter WHERE id = ?";
     $stmt = $dbh->prepare($sql);
     $stmt->execute([$id]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
 if (isset($_POST['submit'])) {
-    $_kode = $_POST['kode'];
     $_nama = $_POST['nama'];
+    $_gender = $_POST['gender'];
     $_tmp_lahir = $_POST['tmp_lahir'];
     $_tgl_lahir = $_POST['tgl_lahir'];
-    $_gender = $_POST['gender'];
-    $_email = $_POST['email'];
+    $_kategori = $_POST['kategori'];
+    $_telpon = $_POST['telpon'];
     $_alamat = $_POST['alamat'];
-    $_kelurahan_id = $_POST['kelurahan_id'];
-    $data = [$_kode, $_nama, $_tmp_lahir, $_tgl_lahir, $_gender, $_email, $_alamat, $_kelurahan_id, $id];
-    // Query SQL untuk update data pasien berdasarkan id
-    $sql = "UPDATE pasien SET kode = ?, nama = ?, tmp_lahir = ?, tgl_lahir = ?, gender = ?, email = ?, alamat = ?, kelurahan_id = ? WHERE id = ?";
+    $_unit_kerja_id = $_POST['unit_kerja_id'];
+    $data = [$_nama, $_gender, $_tmp_lahir, $_tgl_lahir, $_kategori, $_telpon, $_alamat, $_unit_kerja_id, $id];
+
+
+    // Query SQL untuk update data dokter berdasarkan id
+    $sql = "UPDATE dokter SET nama = ?, gender = ?, tmp_lahir = ?, tgl_lahir = ?, kategori = ?, telpon = ?, alamat = ?, unit_kerja_id = ? WHERE id = ?";
     $stmt = $dbh->prepare($sql);
+
+    // var_dump($stmt);
+    // die;
+
     $stmt->execute($data);
     echo "<script>window.location.href = 'index.php';</script>";
 }
@@ -38,7 +44,7 @@ if (isset($_POST['submit'])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Menu Edit Data - Form Pasien</h1>
+                    <h1>Menu Edit Data - Form Dokter</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -53,7 +59,7 @@ if (isset($_POST['submit'])) {
                     <!-- Default box -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Form Pasien</h3>
+                            <h3 class="card-title">Form Dokter</h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -65,18 +71,21 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                         <div class="card-body">
-                            <h2 class="text-center">Form Pasien</h2>
+                            <h2 class="text-center">Form Dokter</h2>
                             <form action="edit.php?id=<?= $row['id'] ?>" method="POST">
-                                <div class="form-group row">
-                                    <label for="kode" class="col-4 col-form-label">Kode</label>
-                                    <div class="col-8">
-                                        <input id="kode" name="kode" type="text" class="form-control" value="<?= $row['kode'] ?>">
-                                    </div>
-                                </div>
                                 <div class="form-group row">
                                     <label for="nama" class="col-4 col-form-label">Nama</label>
                                     <div class="col-8">
                                         <input id="nama" name="nama" type="text" class="form-control" value="<?= $row['nama'] ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="gender" class="col-4 col-form-label">Jenis Kelamin</label>
+                                    <div class="col-8">
+                                        <select id="gender" name="gender" class="custom-select">
+                                            <option value="L" <?= ($row['gender'] == 'L') ? 'selected' : '' ?>>Laki-Laki</option>
+                                            <option value="P" <?= ($row['gender'] == 'P') ? 'selected' : '' ?>>Perempuan</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -91,19 +100,17 @@ if (isset($_POST['submit'])) {
                                         <input id="tgl_lahir" name="tgl_lahir" type="date" class="form-control" value="<?= $row['tgl_lahir'] ?>">
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
-                                    <label for="gender" class="col-4 col-form-label">Jenis Kelamin</label>
+                                    <label for="kategori" class="col-4 col-form-label">Kategori</label>
                                     <div class="col-8">
-                                        <select id="gender" name="gender" class="custom-select">
-                                            <option value="L" <?= ($row['gender'] == 'L') ? 'selected' : '' ?>>Laki-Laki</option>
-                                            <option value="P" <?= ($row['gender'] == 'P') ? 'selected' : '' ?>>Perempuan</option>
-                                        </select>
+                                        <input id="kategori" name="kategori" type="kategori" class="form-control" value="<?= $row['kategori'] ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="email" class="col-4 col-form-label">Email</label>
+                                    <label for="telpon" class="col-4 col-form-label">Telpon</label>
                                     <div class="col-8">
-                                        <input id="email" name="email" type="email" class="form-control" value="<?= $row['email'] ?>">
+                                        <input id="telpon" name="telpon" type="telpon" class="form-control" value="<?= $row['telpon'] ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -113,14 +120,14 @@ if (isset($_POST['submit'])) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="kelurahan_id" class="col-4 col-form-label">Kelurahan ID</label>
+                                    <label for="unit_kerja_id" class="col-4 col-form-label">Unit Kerja</label>
                                     <div class="col-8">
-                                        <select id="kelurahan_id" name="kelurahan_id" class="custom-select">
+                                        <select id="unit_kerja_id" name="unit_kerja_id" class="custom-select">
                                             <?php
-                                            $sqljenis = "SELECT * FROM kelurahan";
+                                            $sqljenis = "SELECT * FROM unit_kerja";
                                             $rsjenis = $dbh->query($sqljenis);
                                             foreach ($rsjenis as $rowjenis) {
-                                                $selected = ($row['kelurahan_id'] == $rowjenis['id']) ? 'selected' : '';
+                                                $selected = ($row['unit_kerja_id'] == $rowjenis['id']) ? 'selected' : '';
                                                 echo "<option value='" . $rowjenis['id'] . "' $selected>" . $rowjenis['nama'] . "</option>";
                                             }
                                             ?>
