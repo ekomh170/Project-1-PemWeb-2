@@ -92,7 +92,19 @@ if (isset($_POST['submit'])) {
                                 <div class="form-group row">
                                     <label for="kategori" class="col-4 col-form-label">Kategori</label>
                                     <div class="col-8">
-                                        <input id="kategori" name="kategori" type="kategori" class="form-control">
+                                        <select id="kategori" name="kategori" class="custom-select">
+                                            <?php
+                                            // Mendapatkan nilai-nilai enum dari kolom kategori
+                                            $enumValues = $dbh->query("SHOW COLUMNS FROM dokter LIKE 'kategori'")->fetch(PDO::FETCH_ASSOC)['Type'];
+                                            preg_match_all("/'(.*?)'/", $enumValues, $matches);
+                                            $enumOptions = $matches[1];
+
+                                            // Loop untuk membuat opsi-opsi dropdown
+                                            foreach ($enumOptions as $option) {
+                                                echo "<option value='$option'>$option</option>";
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
