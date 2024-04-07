@@ -26,8 +26,13 @@ if (isset($_POST['submit'])) {
     // Query SQL untuk update data pasien berdasarkan id
     $sql = "UPDATE pasien SET kode = ?, nama = ?, tmp_lahir = ?, tgl_lahir = ?, gender = ?, email = ?, alamat = ?, kelurahan_id = ? WHERE id = ?";
     $stmt = $dbh->prepare($sql);
-    $stmt->execute($data);
-    echo "<script>window.location.href = 'index.php';</script>";
+    if ($stmt->execute($data)) {
+        // Jika eksekusi query berhasil
+        echo "<script>alert('Data berhasil diupdate.'); window.location.href = 'index.php';</script>";
+    } else {
+        // Jika eksekusi query gagal
+        echo "<script>alert('Gagal memperbarui data. Silakan coba lagi.');</script>";
+    }
 }
 ?>
 

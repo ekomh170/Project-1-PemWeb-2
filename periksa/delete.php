@@ -11,10 +11,11 @@ if (isset($_GET['id'])) {
     $stmt = $dbh->prepare($sql);
     $stmt->execute([$id]);
 
-    // Redirect ke halaman index.php setelah proses penghapusan selesai
-    header("Location: index.php");
+    // Menampilkan alert setelah proses penghapusan selesai
+    echo "<script>alert('Data berhasil dihapus.'); window.location='index.php';</script>";
     exit();
 } else {
     echo "Parameter ID tidak ditemukan.";
     exit;
 }
+?>

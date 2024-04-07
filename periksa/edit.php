@@ -25,8 +25,13 @@ if (isset($_POST['submit'])) {
     // Query SQL untuk update data periksa berdasarkan id
     $sql = "UPDATE periksa SET tanggal = ?, berat = ?, tinggi = ?, tensi = ?, keterangan = ?, pasien_id = ?, dokter_id = ? WHERE id = ?";
     $stmt = $dbh->prepare($sql);
-    $stmt->execute($data);
-    echo "<script>window.location.href = 'index.php';</script>";
+    if ($stmt->execute($data)) {
+        // Jika eksekusi query berhasil
+        echo "<script>alert('Data berhasil diupdate.'); window.location.href = 'index.php';</script>";
+    } else {
+        // Jika eksekusi query gagal
+        echo "<script>alert('Gagal memperbarui data. Silakan coba lagi.');</script>";
+    }
 }
 ?>
 

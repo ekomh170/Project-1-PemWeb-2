@@ -15,8 +15,13 @@ if (isset($_POST["submit"])) {
     $data = [$_kode, $_nama, $_tmp_lahir, $_tgl_lahir, $_gender, $_email, $_alamat, $_kelurahan_id];
     $sql = "INSERT INTO pasien (kode, nama, tmp_lahir, tgl_lahir, gender, email, alamat, kelurahan_id) VALUES (?,? ,? ,? ,? ,? ,? ,?)";
     $stmt = $dbh->prepare($sql);
-    $stmt->execute($data);
-    echo "<script>window.location.href = 'index.php';</script>";
+    if ($stmt->execute($data)) {
+        // Jika eksekusi query berhasil
+        echo "<script>alert('Data berhasil ditambahkan.'); window.location.href = 'index.php';</script>";
+    } else {
+        // Jika eksekusi query gagal
+        echo "<script>alert('Gagal menambahkan data. Silakan coba lagi.');</script>";
+    }
 }
 ?>
 

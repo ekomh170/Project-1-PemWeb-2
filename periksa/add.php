@@ -16,8 +16,13 @@ if (isset($_POST['submit'])) {
     $sql = "INSERT INTO periksa (tanggal, berat, tinggi, tensi, keterangan, pasien_id, dokter_id) VALUES (?,? ,? ,? ,? ,? ,?)";
 
     $stmt = $dbh->prepare($sql);
-    $stmt->execute($data);
-    echo "<script>window.location.href = 'index.php';</script>";
+    if ($stmt->execute($data)) {
+        // Jika eksekusi query berhasil
+        echo "<script>alert('Data berhasil ditambahkan.'); window.location.href = 'index.php';</script>";
+    } else {
+        // Jika eksekusi query gagal
+        echo "<script>alert('Gagal menambahkan data. Silakan coba lagi.');</script>";
+    }
 }
 ?>
 
@@ -95,7 +100,7 @@ if (isset($_POST['submit'])) {
                                             $sqljenis = "SELECT * FROM pasien";
                                             $rsjenis = $dbh->query($sqljenis);
                                             foreach ($rsjenis as $rowjenis) {
-                                                echo "<option value='" . $rowjenis['id'] . "' >" . $rowjenis['id'] . ". ". $rowjenis['nama'] . "</option>";
+                                                echo "<option value='" . $rowjenis['id'] . "' >" . $rowjenis['id'] . ". " . $rowjenis['nama'] . "</option>";
                                             }
                                             ?>
                                         </select>
@@ -109,7 +114,7 @@ if (isset($_POST['submit'])) {
                                             $sqljenis = "SELECT * FROM dokter";
                                             $rsjenis = $dbh->query($sqljenis);
                                             foreach ($rsjenis as $rowjenis) {
-                                                echo "<option value='" . $rowjenis['id'] . "'>" . $rowjenis['id'] . ". ". $rowjenis['nama'] . "</option>";
+                                                echo "<option value='" . $rowjenis['id'] . "'>" . $rowjenis['id'] . ". " . $rowjenis['nama'] . "</option>";
                                             }
                                             ?>
                                         </select>

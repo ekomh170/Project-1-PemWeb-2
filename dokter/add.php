@@ -20,8 +20,13 @@ if (isset($_POST['submit'])) {
     $stmt = $dbh->prepare($sql);
     // var_dump($stmt);die;
 
-    $stmt->execute($data);
-    echo "<script>window.location.href = 'index.php';</script>";
+    if ($stmt->execute($data)) {
+        // Jika eksekusi query berhasil
+        echo "<script>alert('Data berhasil ditambahkan.'); window.location.href = 'index.php';</script>";
+    } else {
+        // Jika eksekusi query gagal
+        echo "<script>alert('Gagal menambahkan data. Silakan coba lagi.');</script>";
+    }
 }
 ?>
 

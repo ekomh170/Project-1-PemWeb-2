@@ -20,7 +20,7 @@ require_once 'sidebar.php';
     <section class="content">
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12">
                     <!-- Default box -->
                     <div class="card">
@@ -36,10 +36,10 @@ require_once 'sidebar.php';
                                 </button>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body table-responsive">
                             <h2 class="text-center">Data Pasien</h2>
                             <a href="add.php"><button class="btn btn-primary mb-1">Tambah Data</button></a>
-                            <table class="table">
+                            <table class="table table-striped text-center">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -74,6 +74,7 @@ require_once 'sidebar.php';
                                         echo "<td>" . $row['kelurahan_id'] . "</td>";
                                         echo "<td>";
                                         echo "<a href='edit.php?id=" . $row['id'] . "'><button class='btn btn-warning'>Edit</button></a>";
+                                        echo "<span class='mx-1'></span>"; 
                                         echo "<a href='delete.php?id=" . $row['id'] . "' onclick='return confirm(\"Yakin Hapus Data?\")'><button class='btn btn-danger'>Delete</button></a>";
                                         echo "</td>";
                                         echo "</tr>";
