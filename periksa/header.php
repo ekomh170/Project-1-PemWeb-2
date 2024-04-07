@@ -39,13 +39,13 @@
                     <a href="../index.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../index.php" class="nav-link">Pasien</a>
+                    <a href="../pasien" class="nav-link">Pasien</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="../dokter" class="nav-link">Dokter</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../periksa" class="nav-link">Periksa</a>
+                    <a href="index.php" class="nav-link">Periksa</a>
                 </li>
             </ul>
 
