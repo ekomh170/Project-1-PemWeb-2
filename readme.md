@@ -9,6 +9,8 @@
 
 # Aplikasi CRUD Sederhana Puskesmas dengan PHP, MySQL, dan AdminLTE
 
+![Aplikasi CRUD Sederhana Puskesmas dengan PHP, MySQL, dan AdminLTE](assets/readme/Project1.png)
+
 ## Deskripsi
 
 Projek ini bertujuan untuk membuat aplikasi CRUD sederhana. Aplikasi ini menggunakan teknologi PHP, MySQL, dan AdminLTE. Terdapat lima tabel yang akan diolah, yaitu pasien, periksa, dokter,  unit kerja & kelurahan.
@@ -20,26 +22,38 @@ Projek ini bertujuan untuk membuat aplikasi CRUD sederhana. Aplikasi ini menggun
 
 ## Penjelasan Menu Yang Ada Di Aplikasi
 
-1. **Menu Dokter**:
+1. **Dashboard Informasi**:
+Untuk Menampilkan Informasi Penting Seperti Jumlah Data Pada Setiap Menu & Menampilkan Informasi Data Pemeriksaan Pasien Yang Terburu Setiap Di Input.
+
+2. **Profile Kreator**:
+Menu Tambahan Identitas Sang Kreator Aplikasi CRUD Sederhana Puskesmas 
+
+3. **Menu Dokter**:
    - Buat tampilan CRUD untuk dokter yang mencakup:
      - Menampilkan daftar dokter.
      - Menambahkan data dokter baru.
      - Mengedit data dokter yang sudah ada.
      - Menghapus data dokter.
     
-2. **Menu Periksa**:
+4. **Menu Periksa**:
    - Buat tampilan CRUD untuk periksa yang mencakup:
      - Menampilkan daftar periksa.
      - Menambahkan data periksa baru.
      - Mengedit data periksa yang sudah ada.
      - Menghapus data periksa.
 
-3. **Menu Pasien**:
+5. **Menu Pasien**:
    - Buat tampilan CRUD untuk pasien yang sudah disediakan dalam template project, yang mencakup:
      - Menampilkan daftar pasien.
      - Menambahkan data pasien baru.
      - Mengedit data pasien yang sudah ada.
      - Menghapus data pasien.
+
+6. **Profile Linkedin**:
+Untuk Menampilkan Tautan Linkedin Sang Pembuat
+
+7. **Profile Github**:
+Untuk Menampilkan Tautan Github Sang Pembuat
 
 ## Tech Stack Yang Di Gunakan
    - PHP
