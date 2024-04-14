@@ -43,17 +43,32 @@ Menu Tambahan Identitas Sang Kreator Aplikasi CRUD Sederhana Puskesmas
      - Menghapus data periksa.
 
 5. **Menu Pasien**:
-   - Buat tampilan CRUD untuk pasien yang sudah disediakan dalam template project, yang mencakup:
+   - Buat tampilan CRUD untuk pasien yang mencakup:
      - Menampilkan daftar pasien.
      - Menambahkan data pasien baru.
      - Mengedit data pasien yang sudah ada.
      - Menghapus data pasien.
 
-6. **Profile Linkedin**:
-Untuk Menampilkan Tautan Linkedin Sang Pembuat
+##### Fitur Tambahan Di Luar Permintaan :
+6. **Menu Kelurahan**:
+   - Buat tampilan CRUD untuk kelurahan yang mencakup:
+     - Menampilkan daftar kelurahan.
+     - Menambahkan data kelurahan baru.
+     - Mengedit data kelurahan yang sudah ada.
+     - Meniadakan Fitur Hapus Data, karena akan berpengaruh kepada ID yang sudah di hubungkan dengan table pasien
 
-7. **Profile Github**:
-Untuk Menampilkan Tautan Github Sang Pembuat
+7. **Menu Unit Kerja**:
+   - Buat tampilan CRUD untuk unit kerja yang mencakup:
+     - Menampilkan daftar unit kerja.
+     - Menambahkan data unit kerja baru.
+     - Mengedit data unit kerja yang sudah ada.
+     - Meniadakan Fitur Hapus Data, karena akan Berpengaruh kepada ID yang sudah di hubungkan dengan table dokter
+
+8. **Profile Linkedin**:
+Untuk Menampilkan Tautan Linkedin Sang Pembuat : 
+
+9. **Profile Github**:
+Untuk Menampilkan Tautan Github Sang Pembuat :
 
 ## Tech Stack Yang Di Gunakan
    - PHP
