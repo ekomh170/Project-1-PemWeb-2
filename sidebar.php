@@ -99,6 +99,30 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Table Data Tambahan
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="kelurahan" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Table Kelurahan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unit_kerja" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Table Unit Kerja</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
                     <a href="https://www.linkedin.com/in/eko-haryono-290/" class="nav-link" target="_blank">
                         <i class="nav-icon fas fa-user-alt"></i>
                         <p>
